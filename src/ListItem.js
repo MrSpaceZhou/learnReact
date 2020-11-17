@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import propTypes from 'prop-types'
 
 class ListItem extends Component {
     
@@ -9,7 +10,9 @@ class ListItem extends Component {
 
     render() { 
         return (
-            <li onClick={this.handleClick}>{this.props.content}</li> 
+            <li onClick={this.handleClick}>
+            {this.props.addname}添加了 - {this.props.content}
+            </li> 
             );
     }
 
@@ -18,4 +21,13 @@ class ListItem extends Component {
     }
 }
  
+ListItem.propTypes={
+    addname:propTypes.string.isRequired,
+    content:propTypes.string,
+    index:propTypes.number,
+    deleteList:propTypes.func
+}
+ListItem.defaultProps={
+    addname:'乙方'
+}
 export default ListItem;
